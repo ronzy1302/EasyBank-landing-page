@@ -7,7 +7,7 @@
 
 body, html {
   max-width: 1440px;
-  height: 100%;
+  height: 100vh;
   scroll-behavior: smooth;
   font-size: 1.1em;
   overflow-x: hidden;
@@ -237,7 +237,7 @@ header .container .hamburger {
   }
 }
 
-main section#hero {
+main div#hero {
   position: relative;
   top: 0;
   left: 0;
@@ -254,30 +254,30 @@ main section#hero {
 }
 
 @media only screen and (max-width: 1024px) and (orientation: portrait) {
-  main section#hero {
+  main div#hero {
     background: url(/images/bg-intro-mobile.svg) no-repeat right top;
     background-size: contain;
   }
 }
 
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
-  main section#hero {
+  main div#hero {
     background: none;
   }
 }
 
 @media only screen and (max-width: 550px) and (orientation: portrait) {
-  main section#hero {
+  main div#hero {
     padding: 2rem 0;
   }
 }
 
-main section#hero .intro {
+main div#hero .intro {
   width: 50%;
 }
 
 @media only screen and (max-width: 1024px) and (orientation: portrait) {
-  main section#hero .intro {
+  main div#hero .intro {
     width: 100%;
     text-align: center;
     margin-top: 70vh;
@@ -285,42 +285,42 @@ main section#hero .intro {
 }
 
 @media only screen and (max-width: 550px) and (orientation: portrait) {
-  main section#hero .intro {
+  main div#hero .intro {
     margin-top: 50vh;
   }
 }
 
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
-  main section#hero .intro {
+  main div#hero .intro {
     width: 100%;
     text-align: center;
   }
 }
 
-main section#hero .intro h1 {
+main div#hero .intro h1 {
   font-size: 3rem;
   color: #2d314d;
 }
 
 @media only screen and (max-width: 1024px) and (orientation: portrait) {
-  main section#hero .intro h1 {
+  main div#hero .intro h1 {
     font-size: 3.5rem;
   }
 }
 
 @media only screen and (max-width: 810px) and (orientation: portrait) {
-  main section#hero .intro h1 {
+  main div#hero .intro h1 {
     font-size: 2.8rem;
   }
 }
 
 @media only screen and (max-width: 550px) and (orientation: portrait) {
-  main section#hero .intro h1 {
+  main div#hero .intro h1 {
     font-size: 2rem;
   }
 }
 
-main section#hero .intro p {
+main div#hero .intro p {
   color: #9698a6;
   margin: 1em 0;
   line-height: 1.5;
@@ -329,24 +329,24 @@ main section#hero .intro p {
 }
 
 @media only screen and (max-width: 1024px) and (orientation: portrait) {
-  main section#hero .intro p {
+  main div#hero .intro p {
     width: 100%;
   }
 }
 
 @media only screen and (max-width: 550px) and (orientation: portrait) {
-  main section#hero .intro p {
+  main div#hero .intro p {
     font-size: .8rem;
   }
 }
 
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
-  main section#hero .intro p {
+  main div#hero .intro p {
     width: 100%;
   }
 }
 
-main section#hero .intro .cta {
+main div#hero .intro .cta {
   border: none;
   padding: .8em 2em;
   color: #f3f4f6;
@@ -357,7 +357,7 @@ main section#hero .intro .cta {
 }
 
 @media only screen and (max-width: 1024px) and (orientation: portrait) {
-  main section#hero .intro .cta {
+  main div#hero .intro .cta {
     width: 50%;
     padding: 1em 2em;
     white-space: nowrap;
@@ -365,16 +365,16 @@ main section#hero .intro .cta {
 }
 
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
-  main section#hero .intro .cta {
+  main div#hero .intro .cta {
     width: 50%;
   }
 }
 
-main section#hero .intro .cta:hover {
+main div#hero .intro .cta:hover {
   opacity: .8;
 }
 
-main section#hero .mockup img {
+main div#hero .mockup img {
   position: absolute;
   top: -7%;
   right: -8%;
@@ -383,7 +383,7 @@ main section#hero .mockup img {
 }
 
 @media only screen and (max-width: 1024px) and (orientation: portrait) {
-  main section#hero .mockup img {
+  main div#hero .mockup img {
     top: 0;
     right: 0;
     left: 50%;
@@ -394,50 +394,52 @@ main section#hero .mockup img {
 }
 
 @media only screen and (max-width: 550px) and (orientation: portrait) {
-  main section#hero .mockup img {
+  main div#hero .mockup img {
     max-width: 90%;
     height: 60%;
   }
 }
 
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
-  main section#hero .mockup img {
+  main div#hero .mockup img {
     display: none;
   }
 }
 
-main section#features {
+main div#features {
   background-color: #f3f4f6;
   z-index: -1;
+  width: 100%;
+  height: 100%;
   padding: 5rem 0;
 }
 
 @media only screen and (max-width: 810px) and (orientation: portrait) {
-  main section#features {
+  main div#features {
     text-align: center;
   }
 }
 
 @media only screen and (max-width: 850px) and (orientation: landscape) {
-  main section#features {
+  main div#features {
     text-align: center;
   }
 }
 
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
-  main section#features {
+  main div#features {
     text-align: center;
   }
 }
 
-main section#features .heading h2 {
+main div#features .heading h2 {
   font-size: 2em;
   font-weight: 700;
   font-weight: lighter;
   color: #2d314d;
 }
 
-main section#features .heading p {
+main div#features .heading p {
   color: #9698a6;
   width: 60%;
   line-height: 1.5;
@@ -446,30 +448,30 @@ main section#features .heading p {
 }
 
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
-  main section#features .heading p {
+  main div#features .heading p {
     width: 100%;
   }
 }
 
 @media only screen and (max-width: 850px) and (orientation: landscape) {
-  main section#features .heading p {
+  main div#features .heading p {
     width: 100%;
   }
 }
 
 @media only screen and (max-width: 810px) and (orientation: portrait) {
-  main section#features .heading p {
+  main div#features .heading p {
     width: 100%;
   }
 }
 
 @media only screen and (max-width: 550px) and (orientation: portrait) {
-  main section#features .heading p {
+  main div#features .heading p {
     width: 100%;
   }
 }
 
-main section#features .feature-cards {
+main div#features .feature-cards {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
@@ -481,24 +483,26 @@ main section#features .feature-cards {
   margin: 2rem 0;
 }
 
-main section#features .feature-cards .card h3 {
+main div#features .feature-cards .card h3 {
   font-size: 1em;
   font-weight: 400;
   color: #2d314d;
   margin: 1em 0;
 }
 
-main section#features .feature-cards .card p {
+main div#features .feature-cards .card p {
   color: #9698a6;
   line-height: 1.5;
   font-size: .8em;
 }
 
-main section#articles {
+main div#articles {
   padding: 3em 0;
+  width: 100%;
+  height: 100%;
 }
 
-main section#articles h2 {
+main div#articles h2 {
   font-size: 2em;
   font-weight: 700;
   font-weight: lighter;
@@ -506,18 +510,18 @@ main section#articles h2 {
 }
 
 @media only screen and (max-width: 810px) and (orientation: portrait) {
-  main section#articles h2 {
+  main div#articles h2 {
     text-align: center;
   }
 }
 
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
-  main section#articles h2 {
+  main div#articles h2 {
     text-align: center;
   }
 }
 
-main section#articles .articles-container {
+main div#articles .articles-container {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
@@ -529,34 +533,34 @@ main section#articles .articles-container {
   padding: 2em 0;
 }
 
-main section#articles .articles-container article img {
+main div#articles .articles-container article img {
   width: 100%;
   height: 200px;
 }
 
-main section#articles .articles-container article .desc {
+main div#articles .articles-container article .desc {
   margin-top: 1.5em;
   cursor: pointer;
 }
 
-main section#articles .articles-container article .desc .author {
+main div#articles .articles-container article .desc .author {
   font-size: .6em;
   color: #9698a6;
   margin-bottom: .8em;
 }
 
-main section#articles .articles-container article .desc a.title {
+main div#articles .articles-container article .desc a.title {
   text-decoration: none;
   font-size: 1em;
   font-weight: 400;
   color: #2d314d;
 }
 
-main section#articles .articles-container article .desc .title:hover {
+main div#articles .articles-container article .desc .title:hover {
   color: #31d35c;
 }
 
-main section#articles .articles-container article .desc .text {
+main div#articles .articles-container article .desc .text {
   margin-top: .8em;
   font-size: .8em;
   font-weight: 300;

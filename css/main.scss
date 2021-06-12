@@ -59,7 +59,7 @@ $medium: 850px;
 
 body, html {
     max-width: 1440px;
-    height: 100%;
+    height: 100vh;
     scroll-behavior: smooth;
     font-size: 1.1em;
     overflow-x: hidden;
@@ -246,7 +246,7 @@ header {
 
 main {
     
-    section#hero {
+    div#hero {
         position: relative;
         top: 0;
         left: 0;
@@ -377,9 +377,11 @@ main {
         }
     }
 
-    section#features {
+    div#features {
         background-color: color(Light-Grayish-Blue);
         z-index: -1;
+        width: 100%;
+        height: 100%;
         padding: 5rem 0;
 
         @include mobile {
@@ -452,9 +454,10 @@ main {
         }
     }
 
-    section#articles {
+    div#articles {
         padding: 3em 0;
-
+        width: 100%;
+        height: 100%;
 
         h2 {
             font-size: 2em;
