@@ -253,7 +253,7 @@ main {
         background: url(/images/bg-intro-desktop.svg) no-repeat 32rem -11rem;  
         background-size: 100%;
         width: 100%;
-        height: 100vh;
+        padding: 8rem 0;
         display: flex;
         align-items: center;
 
@@ -266,6 +266,10 @@ main {
             background: none;
         }
 
+        @include small {
+            padding: 2rem 0;
+        }
+
         .intro {
             width: 50%;
             
@@ -276,7 +280,7 @@ main {
             }
 
             @include small {
-                margin-top: 60vh;
+                margin-top: 50vh;
             }
 
             @include landscape {
@@ -361,7 +365,7 @@ main {
                 }
 
                 @include small {
-                    max-width: 100%;
+                    max-width: 90%;
                     height: 60%;
                 }
 
