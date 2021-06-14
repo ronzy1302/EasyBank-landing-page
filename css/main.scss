@@ -23,7 +23,8 @@ White-clr: hsl(0, 0%, 100%),
 $points: (
     medium: 45em,
     large: 64em,
-    x-large: 78.75em
+    x-large: 78.75em,
+    xx-large: 85em
 );
 
 @mixin breakPoints($point) {
@@ -91,6 +92,9 @@ header {
         }
         @include breakPoints(x-large) {
             padding: .5em 0;
+        }
+        @include breakPoints(xx-large) {
+            padding: .8em 0;
         }
 
         nav {
@@ -230,6 +234,10 @@ main {
                 }
             }
 
+            @include breakPoints(xx-large) {
+                min-height: 41rem;
+            }
+
             
             
             &::after {
@@ -246,7 +254,6 @@ main {
                 }
 
                 @include breakPoints(large) {
-                    border: 1px solid red;
                     height: 120%;
                     background-size: 105%;
                     background-position: 4.5rem -3rem;
@@ -255,6 +262,9 @@ main {
                     height: 130%;
                     background-size: 95%;
                     background-position: 8.5rem -3rem;
+                }
+                @include breakPoints(xx-large) {
+                    background-position: 10rem -5rem;
                 }
             }
         }
@@ -268,6 +278,10 @@ main {
 
             @include breakPoints(x-large) {
                 padding: 8em 6em;
+            }
+
+            @include breakPoints(xx-large) {
+                padding: 10em 6em;
             }
             .intro {
                 margin: 2em 0;
@@ -336,6 +350,10 @@ main {
             justify-content: center;
             gap: .8em;
             margin: 2rem 0;
+
+            @include breakPoints(xx-large) {
+                margin: 4rem 0;
+            }
 
             .card {
                 h3 {
