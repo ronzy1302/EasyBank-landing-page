@@ -6,27 +6,41 @@
 }
 
 body, html {
-  max-width: 1440px;
-  height: 100vh;
+  max-width: 90rem;
   scroll-behavior: smooth;
-  font-size: 1.1em;
   overflow-x: hidden;
   font-family: 'Public Sans', sans-serif;
 }
 
-@media only screen and (max-width: 550px) and (orientation: portrait) {
-  body, html {
-    text-align: center;
-  }
+h1, h2, h3 {
+  color: #2d314d;
 }
 
-.shadow {
-  opacity: .6;
+p {
+  color: #9698a6;
+  font-size: .9em;
+  line-height: 1.5;
 }
 
 .container {
   width: 85%;
   margin: 0 auto;
+}
+
+.button {
+  white-space: nowrap;
+  border: none;
+  padding: .8em 2em;
+  font-size: .9rem;
+  color: #f3f4f6;
+  background-image: -webkit-gradient(linear, right top, left top, from(#31d35c), to(#2bb7da));
+  background-image: linear-gradient(to left, #31d35c, #2bb7da);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: .8;
 }
 
 header {
@@ -39,7 +53,7 @@ header {
 }
 
 header .container {
-  height: 10vh;
+  padding: .8em 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -49,86 +63,93 @@ header .container {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  z-index: 1;
 }
 
-@media only screen and (max-width: 1024px) and (orientation: portrait) {
+@media screen and (min-width: 64em) {
   header .container {
-    height: auto;
-    padding: 1em 0;
+    padding: .1em 0;
   }
 }
 
-header .container ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+@media screen and (min-width: 78.75em) {
+  header .container {
+    padding: .5em 0;
+  }
+}
+
+header .container nav {
+  width: 85%;
+  position: absolute;
+  top: 8vh;
+  list-style: none;
+  line-height: 2.5;
+  text-align: center;
+  border-radius: .5em;
+  background-color: white;
+  -webkit-box-shadow: 0 30px 50px 50px #00000080;
+          box-shadow: 0 30px 50px 50px #00000080;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-transition: -webkit-transform 500ms ease-in-out;
+  transition: -webkit-transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
+}
+
+@media screen and (min-width: 64em) {
+  header .container nav {
+    position: relative;
+    top: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+}
+
+header .container nav ul {
   list-style: none;
 }
 
-@media only screen and (max-width: 810px) and (orientation: portrait) {
-  header .container ul {
-    position: absolute;
-    top: 10vh;
-    left: 5%;
-    width: 90%;
-    display: block;
-    background-color: white;
-    -webkit-box-shadow: 0 10px 20px 3px #333;
-            box-shadow: 0 10px 20px 3px #333;
-    text-align: center;
-    border-radius: .5rem;
-    -webkit-transform: scaleY(0);
-            transform: scaleY(0);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    -webkit-transition: -webkit-transform 800ms ease;
-    transition: -webkit-transform 800ms ease;
-    transition: transform 800ms ease;
-    transition: transform 800ms ease, -webkit-transform 800ms ease;
+@media screen and (min-width: 64em) {
+  header .container nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 
-@media only screen and (max-width: 850px) and (orientation: landscape) {
-  header .container ul {
-    position: absolute;
-    top: 10vh;
-    right: 10%;
-    width: 80%;
-    display: block;
-    background-color: white;
-    -webkit-box-shadow: 0 10px 20px 3px #333;
-            box-shadow: 0 10px 20px 3px #333;
-    text-align: center;
-    border-radius: .5rem;
-    -webkit-transform: scaleY(0);
-            transform: scaleY(0);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    -webkit-transition: -webkit-transform 800ms ease;
-    transition: -webkit-transform 800ms ease;
-    transition: transform 800ms ease;
-    transition: transform 800ms ease, -webkit-transform 800ms ease;
-  }
-}
-
-header .container ul li a {
+header .container nav ul li a {
   text-decoration: none;
   font-size: 1rem;
+  font-weight: 700;
   position: relative;
-  color: #9698a6;
+  color: #2d314d;
 }
 
-@media only screen and (max-width: 1024px) and (orientation: portrait) {
-  header .container ul li a {
-    font-size: .9rem;
+@media screen and (min-width: 64em) {
+  header .container nav ul li a {
+    color: #9698a6;
+    margin: 0 1em;
+    font-size: .8rem;
   }
 }
 
-header .container ul li a::after {
+@media screen and (min-width: 78.75em) {
+  header .container nav ul li a {
+    font-size: 1rem;
+  }
+}
+
+header .container nav ul li a::after {
   content: '';
   position: absolute;
   bottom: -5px;
@@ -144,47 +165,25 @@ header .container ul li a::after {
   transition: all 300ms ease-in;
 }
 
-header .container ul li a:hover::after {
+header .container nav ul li a:hover::after {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
   -webkit-transform-origin: left;
           transform-origin: left;
 }
 
-header .container ul li a:hover {
+header .container nav ul li a:hover {
   color: #2d314d;
 }
 
-header .container ul a.active {
+@media screen and (min-width: 78.75em) {
+  header .container nav ul .invite-btn {
+    font-size: .9rem;
+  }
+}
+
+header .container nav ul a.active {
   color: #2d314d;
-}
-
-header .container ul li + li {
-  margin-left: 2em;
-}
-
-@media only screen and (max-width: 810px) and (orientation: portrait) {
-  header .container ul li a {
-    font-size: 1.2rem;
-    color: #2d314d;
-    font-weight: 700;
-    line-height: 2.5;
-  }
-  header .container ul li + li {
-    margin-left: 0;
-  }
-}
-
-@media only screen and (max-width: 850px) and (orientation: landscape) {
-  header .container ul li a {
-    font-size: 1.2rem;
-    color: #2d314d;
-    font-weight: 700;
-    line-height: 2.5;
-  }
-  header .container ul li + li {
-    margin-left: 0;
-  }
 }
 
 header .container .active {
@@ -195,283 +194,184 @@ header .container .active {
 }
 
 header .container .invite-btn {
-  border: none;
-  padding: .8em 2em;
-  color: #f3f4f6;
-  background-image: -webkit-gradient(linear, right top, left top, from(#31d35c), to(#2bb7da));
-  background-image: linear-gradient(to left, #31d35c, #2bb7da);
-  border-radius: 20px;
-  cursor: pointer;
+  display: none;
 }
 
-@media only screen and (max-width: 810px) and (orientation: portrait) {
+@media screen and (min-width: 64em) {
   header .container .invite-btn {
-    display: none;
+    display: block;
   }
-}
-
-@media only screen and (max-width: 850px) and (orientation: landscape) {
-  header .container .invite-btn {
-    display: none;
-  }
-}
-
-header .container .invite-btn:hover {
-  opacity: .8;
 }
 
 header .container .hamburger {
-  display: none;
   cursor: pointer;
 }
 
-@media only screen and (max-width: 810px) and (orientation: portrait) {
+@media screen and (min-width: 64em) {
   header .container .hamburger {
-    display: block;
-  }
-}
-
-@media only screen and (max-width: 850px) and (orientation: landscape) {
-  header .container .hamburger {
-    display: block;
-  }
-}
-
-main div#hero {
-  position: relative;
-  top: 0;
-  left: 0;
-  background: url(/images/bg-intro-desktop.svg) no-repeat 32rem -11rem;
-  background-size: 100%;
-  width: 100%;
-  padding: 8rem 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-@media only screen and (max-width: 1024px) and (orientation: portrait) {
-  main div#hero {
-    background: url(/images/bg-intro-mobile.svg) no-repeat right top;
-    background-size: contain;
-  }
-}
-
-@media only screen and (max-width: 1024px) and (orientation: landscape) {
-  main div#hero {
-    background: none;
-  }
-}
-
-@media only screen and (max-width: 550px) and (orientation: portrait) {
-  main div#hero {
-    padding: 2rem 0;
-  }
-}
-
-main div#hero .intro {
-  width: 50%;
-}
-
-@media only screen and (max-width: 1024px) and (orientation: portrait) {
-  main div#hero .intro {
-    width: 100%;
-    text-align: center;
-    margin-top: 70vh;
-  }
-}
-
-@media only screen and (max-width: 550px) and (orientation: portrait) {
-  main div#hero .intro {
-    margin-top: 50vh;
-  }
-}
-
-@media only screen and (max-width: 1024px) and (orientation: landscape) {
-  main div#hero .intro {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-main div#hero .intro h1 {
-  font-size: 3rem;
-  color: #2d314d;
-}
-
-@media only screen and (max-width: 1024px) and (orientation: portrait) {
-  main div#hero .intro h1 {
-    font-size: 3.5rem;
-  }
-}
-
-@media only screen and (max-width: 810px) and (orientation: portrait) {
-  main div#hero .intro h1 {
-    font-size: 2.8rem;
-  }
-}
-
-@media only screen and (max-width: 550px) and (orientation: portrait) {
-  main div#hero .intro h1 {
-    font-size: 2rem;
-  }
-}
-
-main div#hero .intro p {
-  color: #9698a6;
-  margin: 1em 0;
-  line-height: 1.5;
-  font-size: .9em;
-  width: 85%;
-}
-
-@media only screen and (max-width: 1024px) and (orientation: portrait) {
-  main div#hero .intro p {
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 550px) and (orientation: portrait) {
-  main div#hero .intro p {
-    font-size: .8rem;
-  }
-}
-
-@media only screen and (max-width: 1024px) and (orientation: landscape) {
-  main div#hero .intro p {
-    width: 100%;
-  }
-}
-
-main div#hero .intro .cta {
-  border: none;
-  padding: .8em 2em;
-  color: #f3f4f6;
-  background-image: -webkit-gradient(linear, right top, left top, from(#31d35c), to(#2bb7da));
-  background-image: linear-gradient(to left, #31d35c, #2bb7da);
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-@media only screen and (max-width: 1024px) and (orientation: portrait) {
-  main div#hero .intro .cta {
-    width: 50%;
-    padding: 1em 2em;
-    white-space: nowrap;
-  }
-}
-
-@media only screen and (max-width: 1024px) and (orientation: landscape) {
-  main div#hero .intro .cta {
-    width: 50%;
-  }
-}
-
-main div#hero .intro .cta:hover {
-  opacity: .8;
-}
-
-main div#hero .mockup img {
-  position: absolute;
-  top: -7%;
-  right: -8%;
-  z-index: 1;
-  height: 42rem;
-}
-
-@media only screen and (max-width: 1024px) and (orientation: portrait) {
-  main div#hero .mockup img {
-    top: 0;
-    right: 0;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-    height: 70%;
-  }
-}
-
-@media only screen and (max-width: 550px) and (orientation: portrait) {
-  main div#hero .mockup img {
-    max-width: 90%;
-    height: 60%;
-  }
-}
-
-@media only screen and (max-width: 1024px) and (orientation: landscape) {
-  main div#hero .mockup img {
     display: none;
   }
 }
 
-main div#features {
-  background-color: #f3f4f6;
-  z-index: -1;
+main {
+  text-align: center;
+}
+
+@media screen and (min-width: 64em) {
+  main section#hero {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+main section#hero .mockup {
+  position: relative;
+  background: url(/images/bg-intro-mobile.svg) no-repeat center center;
+  background-size: cover;
+  width: 100%;
+  min-height: 20rem;
+}
+
+@media screen and (min-width: 64em) {
+  main section#hero .mockup {
+    min-height: 30rem;
+    -webkit-box-flex: 3;
+        -ms-flex: 3;
+            flex: 3;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    background: none;
+  }
+  main section#hero .mockup::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 150%;
+    background: url(/images/bg-intro-desktop.svg) no-repeat -3.125rem -10rem;
+    background-size: cover;
+    z-index: -1;
+  }
+}
+
+main section#hero .mockup::after {
+  content: '';
+  position: absolute;
+  left: 0;
   width: 100%;
   height: 100%;
-  padding: 5rem 0;
+  background: url(/images/image-mockups.png) no-repeat center bottom;
+  background-size: 95%;
 }
 
-@media only screen and (max-width: 810px) and (orientation: portrait) {
-  main div#features {
-    text-align: center;
+@media screen and (min-width: 45em) {
+  main section#hero .mockup::after {
+    background-size: 45%;
   }
 }
 
-@media only screen and (max-width: 850px) and (orientation: landscape) {
-  main div#features {
-    text-align: center;
+@media screen and (min-width: 64em) {
+  main section#hero .mockup::after {
+    height: 120%;
+    background-size: 95%;
+    background-position: 5rem -1.5rem;
   }
 }
 
-@media only screen and (max-width: 1024px) and (orientation: landscape) {
-  main div#features {
-    text-align: center;
+@media screen and (min-width: 78.75em) {
+  main section#hero .mockup::after {
+    height: 130%;
+    background-size: 90%;
+    background-position: 10.3rem -3.8rem;
   }
 }
 
-main div#features .heading h2 {
-  font-size: 2em;
+@media screen and (min-width: 64em) {
+  main section#hero .container {
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+    text-align: left;
+    padding: 4em;
+  }
+}
+
+@media screen and (min-width: 78.75em) {
+  main section#hero .container {
+    padding: 6em;
+  }
+}
+
+main section#hero .container .intro {
+  margin: 2em 0;
+}
+
+main section#hero .container .intro h1 {
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+@media screen and (min-width: 78.75em) {
+  main section#hero .container .intro h1 {
+    font-size: 3rem;
+  }
+}
+
+main section#hero .container .intro p {
+  margin: 1.5em 0;
+}
+
+@media screen and (min-width: 64em) {
+  main section#hero .container .intro p {
+    font-size: 1rem;
+  }
+}
+
+main section#features {
+  background-color: #f3f4f6;
+  padding: 3em 0;
+}
+
+@media screen and (min-width: 64em) {
+  main section#features {
+    text-align: left;
+  }
+}
+
+main section#features .heading h2 {
+  font-size: 1.8rem;
   font-weight: 700;
   font-weight: lighter;
   color: #2d314d;
 }
 
-main div#features .heading p {
+@media screen and (min-width: 78.75em) {
+  main section#features .heading h2 {
+    font-size: 2.3rem;
+  }
+}
+
+main section#features .heading p {
   color: #9698a6;
-  width: 60%;
   line-height: 1.5;
   margin: 1em 0;
   font-size: .9em;
 }
 
-@media only screen and (max-width: 1024px) and (orientation: landscape) {
-  main div#features .heading p {
-    width: 100%;
+@media screen and (min-width: 64em) {
+  main section#features .heading p {
+    width: 60%;
+    font-size: 1rem;
   }
 }
 
-@media only screen and (max-width: 850px) and (orientation: landscape) {
-  main div#features .heading p {
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 810px) and (orientation: portrait) {
-  main div#features .heading p {
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 550px) and (orientation: portrait) {
-  main div#features .heading p {
-    width: 100%;
-  }
-}
-
-main div#features .feature-cards {
+main section#features .feature-cards {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
@@ -483,45 +383,44 @@ main div#features .feature-cards {
   margin: 2rem 0;
 }
 
-main div#features .feature-cards .card h3 {
-  font-size: 1em;
+main section#features .feature-cards .card h3 {
+  font-size: 1.3rem;
   font-weight: 400;
   color: #2d314d;
   margin: 1em 0;
 }
 
-main div#features .feature-cards .card p {
+main section#features .feature-cards .card p {
   color: #9698a6;
   line-height: 1.5;
   font-size: .8em;
 }
 
-main div#articles {
-  padding: 3em 0;
-  width: 100%;
-  height: 100%;
+@media screen and (min-width: 64em) {
+  main section#features .feature-cards .card p {
+    font-size: 1rem;
+  }
 }
 
-main div#articles h2 {
+main section#articles {
+  padding: 3em 0;
+  text-align: left;
+}
+
+main section#articles h2 {
   font-size: 2em;
   font-weight: 700;
   font-weight: lighter;
   color: #2d314d;
 }
 
-@media only screen and (max-width: 810px) and (orientation: portrait) {
-  main div#articles h2 {
-    text-align: center;
+@media screen and (min-width: 78.75em) {
+  main section#articles h2 {
+    font-size: 2.3rem;
   }
 }
 
-@media only screen and (max-width: 1024px) and (orientation: landscape) {
-  main div#articles h2 {
-    text-align: center;
-  }
-}
-
-main div#articles .articles-container {
+main section#articles .articles-container {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
@@ -533,34 +432,46 @@ main div#articles .articles-container {
   padding: 2em 0;
 }
 
-main div#articles .articles-container article img {
+main section#articles .articles-container article img {
   width: 100%;
   height: 200px;
 }
 
-main div#articles .articles-container article .desc {
+main section#articles .articles-container article .desc {
   margin-top: 1.5em;
   cursor: pointer;
 }
 
-main div#articles .articles-container article .desc .author {
+main section#articles .articles-container article .desc .author {
   font-size: .6em;
   color: #9698a6;
   margin-bottom: .8em;
 }
 
-main div#articles .articles-container article .desc a.title {
+@media screen and (min-width: 64em) {
+  main section#articles .articles-container article .desc .author {
+    font-size: .9rem;
+  }
+}
+
+main section#articles .articles-container article .desc a.title {
   text-decoration: none;
   font-size: 1em;
   font-weight: 400;
   color: #2d314d;
 }
 
-main div#articles .articles-container article .desc .title:hover {
+@media screen and (min-width: 64em) {
+  main section#articles .articles-container article .desc a.title {
+    font-size: 1.5rem;
+  }
+}
+
+main section#articles .articles-container article .desc .title:hover {
   color: #31d35c;
 }
 
-main div#articles .articles-container article .desc .text {
+main section#articles .articles-container article .desc .text {
   margin-top: .8em;
   font-size: .8em;
   font-weight: 300;
@@ -568,15 +479,26 @@ main div#articles .articles-container article .desc .text {
   color: #9698a6;
 }
 
+@media screen and (min-width: 64em) {
+  main section#articles .articles-container article .desc .text {
+    font-size: 1rem;
+  }
+}
+
 footer {
   background-color: #2d314d;
   padding: .5em 0;
+  text-align: center;
 }
 
 footer .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -588,16 +510,12 @@ footer .container {
   line-height: 3;
 }
 
-@media only screen and (max-width: 810px) and (orientation: portrait) {
+@media screen and (min-width: 45em) {
   footer .container {
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    text-align: center;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 }
 
@@ -609,21 +527,31 @@ footer .container .more-links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 5em;
 }
 
-@media only screen and (max-width: 810px) and (orientation: portrait) {
+@media screen and (min-width: 45em) {
   footer .container .more-links {
-    gap: 0;
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    text-align: left;
+    gap: 2em;
+  }
+}
+
+@media screen and (min-width: 45em) {
+  footer .container .more-links {
+    gap: 5em;
   }
 }
 
@@ -637,29 +565,31 @@ footer .container .more-links ul a {
 
 footer .container .more-links ul a li {
   color: #9698a6;
-  font-size: .8em;
+  font-size: .8rem;
+}
+
+@media screen and (min-width: 64em) {
+  footer .container .more-links ul a li {
+    font-size: .9rem;
+  }
 }
 
 footer .container .more-links ul a li:hover {
   color: #31d35c;
 }
 
-footer .container .copyright .cta {
-  border: none;
-  padding: .8em 2em;
-  color: #f3f4f6;
-  background-image: -webkit-gradient(linear, right top, left top, from(#31d35c), to(#2bb7da));
-  background-image: linear-gradient(to left, #31d35c, #2bb7da);
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-footer .container .copyright .cta:hover {
-  opacity: .8;
+@media screen and (min-width: 45em) {
+  footer .container .copyright {
+    text-align: right;
+  }
+  footer .container .copyright .cta {
+    font-size: .8rem;
+    margin: 2em 0;
+  }
 }
 
 footer .container .copyright p {
   color: #9698a6;
-  font-size: .8em;
+  font-size: .8rem;
 }
 /*# sourceMappingURL=main.css.map */

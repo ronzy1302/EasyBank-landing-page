@@ -20,64 +20,56 @@ White-clr: hsl(0, 0%, 100%),
     @return map-get($colors, $color-name);
 }
 
-$tablet: 1024px;
-$mobile: 810px;
-$small: 550px;
-$landscape: 1024px;
-$medium: 850px;
+$points: (
+    medium: 45em,
+    large: 64em,
+    x-large: 78.75em
+);
 
-@mixin tablet {
-    @media only screen and (max-width: #{$tablet}) and (orientation: portrait) {
+@mixin breakPoints($point) {
+    @media screen and (min-width: map-get($points, $point)) {
         @content;
     }
 }
 
-@mixin mobile {
-    @media only screen and (max-width: #{$mobile}) and (orientation: portrait) {
-        @content;
-    }
-}
-
-@mixin small {
-    @media only screen and (max-width: #{$small}) and (orientation: portrait) {
-        @content;
-    }
-}
-
-@mixin landscape {
-    @media only screen and (max-width: #{$landscape}) and (orientation: landscape) {
-        @content;
-    }
-}
-
-@mixin medium {
-    @media only screen and (max-width: #{$medium}) and (orientation: landscape) {
-        @content;
-    }
-}
 
 
 body, html {
-    max-width: 1440px;
-    height: 100vh;
+    max-width: 90rem;
     scroll-behavior: smooth;
-    font-size: 1.1em;
     overflow-x: hidden;
     font-family: 'Public Sans', sans-serif;
-
-    @include small {
-        text-align: center;
-    }
 }
 
-.shadow {
-    opacity: .6;
+h1,h2,h3 {
+    color: color(Dark-Blue);
 }
 
+p {
+    color: color(Grayish-Blue);
+    font-size: .9em;
+    line-height: 1.5;
+
+}
 
 .container {
     width: 85%;
     margin: 0 auto;
+}
+
+.button {
+    white-space: nowrap;
+    border: none;
+    padding: .8em 2em;
+    font-size: .9rem;
+    color: color(Light-Grayish-Blue);
+    background-image: linear-gradient(to left, color(Lime-Green), color(Bright-Cyan));
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: .8;
 }
 
 header {
@@ -89,117 +81,98 @@ header {
     z-index: 2;
     
     .container{
-        height: 10vh;
+        padding: .8em 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        z-index: 1;
 
-        @include tablet {
-            height: auto;
-            padding: 1em 0;
+        @include breakPoints(large) {
+            padding: .1em 0;
+        }
+        @include breakPoints(x-large) {
+            padding: .5em 0;
         }
 
-        ul {
-        display: flex;
-        align-items: center;
-        list-style: none;
-            
-        @include mobile {
+        nav {
+            width: 85%;
             position: absolute;
-            top: 10vh;
-            left: 5%;
-            width: 90%;
-            display: block;
-            background-color: color(White-clr);
-            box-shadow: 0 10px 20px 3px #333;
+            top: 8vh;
+            list-style: none;
+            line-height: 2.5;
             text-align: center;
-            border-radius: .5rem;
-            transform: scaleY(0);
-            transform-origin: top;
-            transition: transform 800ms ease;
-        }
-
-        @include medium {
-            position: absolute;
-            top: 10vh;
-            right: 10%;
-            width: 80%;
-            display: block;
+            border-radius: .5em;
             background-color: color(White-clr);
-            box-shadow: 0 10px 20px 3px #333;
-            text-align: center;
-            border-radius: .5rem;
-            transform: scaleY(0);
+            box-shadow: 0 30px 50px 50px #00000080;
+            transform: scale(0);
             transform-origin: top;
-            transition: transform 800ms ease;
-        }
+            transition: transform 500ms ease-in-out;
 
-            li a {
-            text-decoration: none;
-            font-size: 1rem;
-            position: relative;
-            color: color(Grayish-Blue);
-
-            @include tablet {
-                font-size: .9rem;
-            }
+            @include breakPoints(large) {
+                position: relative;
+                top: 0;
+                transform: scale(1);
+                box-shadow: none;
             }
 
-            li a::after {
-                content: '';
-                position: absolute;
-                bottom: -5px;
-                left: 0;
-                width: 100%;
-                height: 3px;
-                background-color: color(Lime-Green);
-                transform: scaleX(0);
-                transform-origin: left;
-                transition: all 300ms ease-in;
-            }
+            ul {
+                list-style: none;
 
-            li a:hover::after {
-                transform: scaleX(1);
-                transform-origin: left;
-            }
+                @include breakPoints(large) {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
 
-            li a:hover {
-                color: color(Dark-Blue);
-            }
-
-            a.active{
-                color: color(Dark-Blue);
-            }
-
-            li + li {
-                margin-left: 2em;
-            }
-
-            @include mobile {
                 li a {
-                    font-size: 1.2rem;
-                    color: color(Dark-Blue);
-                    font-weight: 700;
-                    line-height: 2.5;
-                }
-                li + li {
-                    margin-left: 0;
-                }
-            }
+                text-decoration: none;
+                font-size: 1rem;
+                font-weight: 700;
+                position: relative;
+                color: color(Dark-Blue);
 
-            @include medium {
-                li a {
-                    font-size: 1.2rem;
-                    color: color(Dark-Blue);
-                    font-weight: 700;
-                    line-height: 2.5;
+                @include breakPoints(large) {
+                    color: color(Grayish-Blue);
+                    margin: 0 1em;
+                    font-size: .8rem;
                 }
-                li + li {
-                    margin-left: 0;
+
+                @include breakPoints(x-large) {
+                    font-size: 1rem;
+                }
+                }
+
+                li a::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0;
+                    width: 100%;
+                    height: 3px;
+                    background-color: color(Lime-Green);
+                    transform: scaleX(0);
+                    transform-origin: left;
+                    transition: all 300ms ease-in;
+                }
+
+                li a:hover::after {
+                    transform: scaleX(1);
+                    transform-origin: left;
+                }
+
+                li a:hover {
+                    color: color(Dark-Blue);
+                }
+
+                .invite-btn {
+                    @include breakPoints(x-large) {
+                        font-size: .9rem;
+                    }
+                }
+
+                a.active{
+                    color: color(Dark-Blue);
                 }
             }
-            
         }
 
         .active {
@@ -207,224 +180,146 @@ header {
             transform-origin: top;
         }
 
-
         .invite-btn {
-            border: none;
-            padding: .8em 2em;
-            color: color(Light-Grayish-Blue);
-            background-image: linear-gradient(to left, color(Lime-Green), color(Bright-Cyan));
-            border-radius: 20px;
-            cursor: pointer;
-
-            @include mobile {
-                display: none;
-            }
-
-            @include medium {
-                display: none;
-            }
-        }
-
-        .invite-btn:hover {
-            opacity: .8;
-        }
-
-        .hamburger {
             display: none;
-            cursor: pointer;
 
-            @include mobile {
+            @include breakPoints(large) {
                 display: block;
             }
+        }
+        .hamburger {
+            cursor: pointer;
 
-            @include medium {
-                display: block;
+            @include breakPoints(large) {
+                display: none;
             }
         }
     }
 }
 
 main {
-    
-    div#hero {
-        position: relative;
-        top: 0;
-        left: 0;
-        background: url(/images/bg-intro-desktop.svg) no-repeat 32rem -11rem;  
-        background-size: 100%;
-        width: 100%;
-        padding: 8rem 0;
-        display: flex;
-        align-items: center;
-
-        @include tablet {
-            background: url(/images/bg-intro-mobile.svg) no-repeat right top;  
-            background-size: contain;
+    text-align: center;
+    section#hero {
+        @include breakPoints(large) {
+            display: flex;
+            align-items: center;
         }
-
-        @include landscape {
-            background: none;
-        }
-
-        @include small {
-            padding: 2rem 0;
-        }
-
-        .intro {
-            width: 50%;
-            
-            @include tablet {
-                width: 100%;
-                text-align: center;
-                margin-top: 70vh;
-            }
-
-            @include small {
-                margin-top: 50vh;
-            }
-
-            @include landscape {
-                width: 100%;
-                text-align: center;
-            }
-
-            h1 {
-                font-size: 3rem;
-                color: color(Dark-Blue);
-
-                @include tablet {
-                    font-size: 3.5rem;
-                }
-
-                @include mobile {
-                    font-size: 2.8rem;
-                }
-
-                @include small {
-                    font-size: 2rem;
-                }
-            }
-
-            p{
-                color: color(Grayish-Blue);
-                margin: 1em 0;
-                line-height: 1.5;
-                font-size: .9em;
-                width: 85%;
-
-                @include tablet {
-                    width: 100%;
-                }   
-                @include small {
-                    font-size: .8rem;
-                }
-
-                @include landscape {
-                    width: 100%;
-                }
-            }
-
-            .cta {
-                border: none;
-                padding: .8em 2em;
-                color: color(Light-Grayish-Blue);
-                background-image: linear-gradient(to left, color(Lime-Green), color(Bright-Cyan));
-                border-radius: 20px;
-                cursor: pointer;
-
-                @include tablet {
-                    width: 50%;
-                    padding: 1em 2em;
-                    white-space: nowrap;
-                }
-
-                @include landscape {
-                    width: 50%;
-                }
-            }
-    
-            .cta:hover {
-                opacity: .8;
-            }
-        }
-
         .mockup {
-            img {
-                position: absolute;
-                top: -7%;
-                right: -8%;
-                z-index: 1;
-                height: 42rem;
+            position: relative;
+            background: url(/images/bg-intro-mobile.svg) no-repeat center center;
+            background-size: cover;
+            width: 100%;
+            min-height: 20rem;
 
-                @include tablet {
-                    top: 0;
-                    right: 0;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    height: 70%;
-                }
+            @include breakPoints(large) {
+                min-height: 30rem;
+                flex: 3;
+                order: 1;   
+                background: none;
 
-                @include small {
-                    max-width: 90%;
-                    height: 60%;
-                }
-
-                @include landscape {
-                    display: none;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    width: 100%;
+                    height: 150%;
+                    background: url(/images/bg-intro-desktop.svg) no-repeat -3.125rem -10rem;
+                    background-size: cover;
+                    z-index: -1;
                 }
             }
-           
+
+            
+            
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url(/images/image-mockups.png) no-repeat center bottom;
+                background-size: 95%;
+
+                @include breakPoints(medium) {
+                    background-size: 45%;
+                }
+
+                @include breakPoints(large) {
+                    height: 120%;
+                    background-size: 95%;
+                    background-position: 5rem -1.5rem;
+                }
+                @include breakPoints(x-large) {
+                    height: 130%;
+                    background-size: 90%;
+                    background-position: 10.3rem -3.8rem;
+                }
+            }
+        }
+
+        .container {
+            @include breakPoints(large) {
+                flex: 2;
+                text-align: left;
+                padding: 4em;
+            }
+
+            @include breakPoints(x-large) {
+                padding: 6em;
+            }
+            .intro {
+                margin: 2em 0;
+
+                h1 {
+                    font-size: 2rem;
+                    font-weight: 300;
+                    line-height: 1.2;
+
+                    @include breakPoints(x-large) {
+                        font-size: 3rem;
+                    }
+                }
+
+                p {
+                    margin: 1.5em 0;
+
+                    @include breakPoints(large) {
+                        font-size: 1rem;
+                    }
+                }
+            }
         }
     }
-
-    div#features {
+    
+    section#features {
         background-color: color(Light-Grayish-Blue);
-        z-index: -1;
-        width: 100%;
-        height: 100%;
-        padding: 5rem 0;
+        padding: 3em 0;
 
-        @include mobile {
-            text-align: center;
+        @include breakPoints(large) {
+            text-align: left;
         }
-
-        @include medium {
-            text-align: center;
-        }
-
-        @include landscape {
-            text-align: center;
-        }
-
         .heading {
             h2 {
-                font-size: 2em;
+                font-size: 1.8rem;
                 font-weight: 700;
                 font-weight: lighter;
                 color: color(Dark-Blue);
+
+                @include breakPoints(x-large) {
+                    font-size: 2.3rem;
+                }
             }
 
             p {
                 color: color(Grayish-Blue);
-                width: 60%;
                 line-height: 1.5;
                 margin: 1em 0;
                 font-size: .9em;
 
-                @include landscape {
-                    width: 100%;
-                }
 
-                @include medium {
-                    width: 100%;
-                }
-
-                @include mobile {
-                    width: 100%;
-                }
-
-                @include small {
-                    width: 100%;
+                @include breakPoints(large) {
+                    width: 60%;
+                    font-size: 1rem;
                 }
             }   
         }
@@ -438,7 +333,7 @@ main {
 
             .card {
                 h3 {
-                    font-size: 1em;
+                    font-size: 1.3rem;
                     font-weight: 400;
                     color: color(Dark-Blue);
                     margin: 1em 0;
@@ -449,27 +344,26 @@ main {
                     color: color(Grayish-Blue);
                     line-height: 1.5;
                     font-size: .8em;
+
+                    @include breakPoints(large) {
+                        font-size: 1rem;
+                    }
                 }
             }
         }
     }
 
-    div#articles {
+    section#articles {
         padding: 3em 0;
-        width: 100%;
-        height: 100%;
-
+        text-align: left;
         h2 {
             font-size: 2em;
             font-weight: 700;
             font-weight: lighter;
             color: color(Dark-Blue);
 
-            @include mobile {
-                text-align: center;
-            }
-            @include landscape {
-                text-align: center;
+            @include breakPoints(x-large) {
+                font-size: 2.3rem;
             }
         }
 
@@ -496,6 +390,10 @@ main {
                         font-size: .6em;
                         color: color(Grayish-Blue);
                         margin-bottom: .8em;
+
+                        @include breakPoints(large) {
+                        font-size: .9rem;
+                    }
                     }
 
                     a.title {
@@ -503,6 +401,10 @@ main {
                         font-size: 1em;
                         font-weight: 400;
                         color: color(Dark-Blue);
+
+                        @include breakPoints(large) {
+                            font-size: 1.5rem;
+                        }
                     }
 
                     .title:hover {
@@ -515,6 +417,10 @@ main {
                         font-weight: 300;
                         line-height: 1.5;
                         color: color(Grayish-Blue);
+
+                        @include breakPoints(large) {
+                            font-size: 1rem;
+                        }
                     }
 
                 }
@@ -527,18 +433,17 @@ main {
 footer {
     background-color: color(Dark-Blue);
     padding: .5em 0;
-
+    text-align: center;
     .container {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
         line-height: 3;
 
-        @include mobile {
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
+        @include breakPoints(medium) {
+            flex-direction: row;
         }
 
         .social-links {
@@ -550,13 +455,18 @@ footer {
 
         .more-links {
             display: flex;
+            flex-direction: column;
             align-items: center;
             flex-wrap: wrap;
-            gap: 5em;
 
-            @include mobile {
-                gap: 0;
-                flex-direction: column;
+            @include breakPoints(medium) {
+                flex-direction: row;
+                text-align: left;
+                gap: 2em;
+            }
+
+            @include breakPoints(medium) {
+                gap: 5em;
             }
 
             ul {
@@ -567,7 +477,11 @@ footer {
 
                     li {
                         color: color(Grayish-Blue);
-                    font-size: .8em;
+                        font-size: .8rem;
+
+                        @include breakPoints(large) {
+                            font-size: .9rem;
+                        }
                     }
 
                     li:hover {
@@ -580,22 +494,17 @@ footer {
 
         .copyright {
             
-            .cta {
-                border: none;
-                padding: .8em 2em;
-                color: color(Light-Grayish-Blue);
-                background-image: linear-gradient(to left, color(Lime-Green), color(Bright-Cyan));
-                border-radius: 20px;
-                cursor: pointer;
-            }
-    
-            .cta:hover {
-                opacity: .8;
+            @include breakPoints(medium) {
+                text-align: right;
+                .cta {
+                    font-size: .8rem;
+                    margin: 2em 0;
+                }
             }
 
             p{
                 color: color(Grayish-Blue);
-                font-size: .8em;
+                font-size: .8rem;
             }
         }
     }
