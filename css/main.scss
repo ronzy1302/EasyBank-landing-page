@@ -134,6 +134,7 @@ header {
                     color: color(Grayish-Blue);
                     margin: 0 1em;
                     font-size: .8rem;
+                    font-weight: 300;
                 }
 
                 @include breakPoints(x-large) {
@@ -212,7 +213,7 @@ main {
             min-height: 20rem;
 
             @include breakPoints(large) {
-                min-height: 30rem;
+                min-height: 35rem;
                 flex: 3;
                 order: 1;   
                 background: none;
@@ -245,14 +246,15 @@ main {
                 }
 
                 @include breakPoints(large) {
+                    border: 1px solid red;
                     height: 120%;
-                    background-size: 95%;
-                    background-position: 5rem -1.5rem;
+                    background-size: 105%;
+                    background-position: 4.5rem -3rem;
                 }
                 @include breakPoints(x-large) {
                     height: 130%;
-                    background-size: 90%;
-                    background-position: 10.3rem -3.8rem;
+                    background-size: 95%;
+                    background-position: 8.5rem -3rem;
                 }
             }
         }
@@ -265,7 +267,7 @@ main {
             }
 
             @include breakPoints(x-large) {
-                padding: 6em;
+                padding: 8em 6em;
             }
             .intro {
                 margin: 2em 0;
@@ -297,6 +299,10 @@ main {
 
         @include breakPoints(large) {
             text-align: left;
+        }
+
+        @include breakPoints(x-large) {
+            padding: 6em 0;
         }
         .heading {
             h2 {
@@ -356,6 +362,9 @@ main {
     section#articles {
         padding: 3em 0;
         text-align: left;
+        @include breakPoints(x-large) {
+            padding: 6em 0;
+        }
         h2 {
             font-size: 2em;
             font-weight: 700;
@@ -434,6 +443,9 @@ footer {
     background-color: color(Dark-Blue);
     padding: .5em 0;
     text-align: center;
+    @include breakPoints(x-large) {
+        padding: 2em 0;
+    }
     .container {
         display: flex;
         flex-direction: column;

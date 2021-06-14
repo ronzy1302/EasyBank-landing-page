@@ -140,6 +140,7 @@ header .container nav ul li a {
     color: #9698a6;
     margin: 0 1em;
     font-size: .8rem;
+    font-weight: 300;
   }
 }
 
@@ -238,7 +239,7 @@ main section#hero .mockup {
 
 @media screen and (min-width: 64em) {
   main section#hero .mockup {
-    min-height: 30rem;
+    min-height: 35rem;
     -webkit-box-flex: 3;
         -ms-flex: 3;
             flex: 3;
@@ -277,17 +278,18 @@ main section#hero .mockup::after {
 
 @media screen and (min-width: 64em) {
   main section#hero .mockup::after {
+    border: 1px solid red;
     height: 120%;
-    background-size: 95%;
-    background-position: 5rem -1.5rem;
+    background-size: 105%;
+    background-position: 4.5rem -3rem;
   }
 }
 
 @media screen and (min-width: 78.75em) {
   main section#hero .mockup::after {
     height: 130%;
-    background-size: 90%;
-    background-position: 10.3rem -3.8rem;
+    background-size: 95%;
+    background-position: 8.5rem -3rem;
   }
 }
 
@@ -303,7 +305,7 @@ main section#hero .mockup::after {
 
 @media screen and (min-width: 78.75em) {
   main section#hero .container {
-    padding: 6em;
+    padding: 8em 6em;
   }
 }
 
@@ -341,6 +343,12 @@ main section#features {
 @media screen and (min-width: 64em) {
   main section#features {
     text-align: left;
+  }
+}
+
+@media screen and (min-width: 78.75em) {
+  main section#features {
+    padding: 6em 0;
   }
 }
 
@@ -405,6 +413,12 @@ main section#features .feature-cards .card p {
 main section#articles {
   padding: 3em 0;
   text-align: left;
+}
+
+@media screen and (min-width: 78.75em) {
+  main section#articles {
+    padding: 6em 0;
+  }
 }
 
 main section#articles h2 {
@@ -489,6 +503,12 @@ footer {
   background-color: #2d314d;
   padding: .5em 0;
   text-align: center;
+}
+
+@media screen and (min-width: 78.75em) {
+  footer {
+    padding: 2em 0;
+  }
 }
 
 footer .container {
